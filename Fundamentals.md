@@ -72,6 +72,61 @@ ip n
 ```
 Brodcast Storm Switches will constantly circle broadcast traffic between eachother if not configured correctly   
 
+### Switch Operation
+Fast Forward - Only Destination MAC  
+Fragment Free - First 64 bytes  
+Store and Forward - Entire Frame and FCS
+
+### Cam Tables
+Learn - Examining the source MAC
+Forward - Examining the destination MAC
+**If Cam Table is full the trans,mission will be sent out on all ports allowing access to the information from attackers**
+
+### VLAN
+
+**VLANs can be inside one another headers will wither have multiple VLAN Tags and/or will have 9100 or 88A8 as the VLAN tag**
+
+### Spanning Tree Protocol (STP)
+
+![image](https://github.com/ckerley2002/Networking/assets/131701398/8e2d0be8-26b2-4518-bb08-4691f7922b34)
+
+**Root Decision Process**
+1. Elect root Bridge
+2. Identify the Root ports on non-root bridge
+3. Identify the Designated port for each segment
+4. Set alternate ports to blocking state  
+
+Used for connecting switches together in a mesh type configuration allowing for redundency  
+Root Bridge (Switch) this is the switch connected to the router  
+
+### Layer 2 Discovery Protocols
+
+CDP (Cisco Discovery Protocol)  
+FDP (Foundry Discovery Protocol)  
+LLDP (Link Layer Discovery Protocol)  
+-Open Source   
+-Will send out data units to eachother declaring information about the switch  
+
+#### Dynamic Trunking Protocol (DTP)
+
+![image](https://github.com/ckerley2002/Networking/assets/131701398/f86c4a9b-f4ac-487f-83ca-2b984e0450c2)  
+
+Trunk ports are for ports that know they are reciving a vlan  
+Access Ports will be on a VLAN but host does not know its on a VLAN  
+Access and Trunk port cannot talk to eachother  
+
+#### VLAN Trunking Protocol
+
+![image](https://github.com/ckerley2002/Networking/assets/131701398/23e6b6ec-316d-4f44-bdb7-82c88d11ab64)  
+
+Whatever switch has the newest revision number is the VTP Server  
+
+#### Port Security
+1. Shutdown
+2. Restrict
+3. Protect
+
+
 ## Layer 3 Transport Layer (Network)
 
 
@@ -126,6 +181,44 @@ Byte 4-32 ICMP Specific Message (Variable Length)
 **IPv4**
 Uses APIPA  
 RFC 3927  
+
+### Layer Three Routing Teachnologies
+
+#### Routing
+
+![image](https://github.com/ckerley2002/Networking/assets/131701398/f463670f-fdaf-46ba-acbc-b529abaf2953)  
+
+#### Routing Table 
+
+![image](https://github.com/ckerley2002/Networking/assets/131701398/5f66710f-180a-4928-bd35-324493ad3578)  
+
+#### Routing vs. Routed
+
+![image](https://github.com/ckerley2002/Networking/assets/131701398/6f2b3704-f9e4-480f-a204-6c85bf3bd744)  
+
+#### First Hop Redundancy Protocol
+
+![image](https://github.com/ckerley2002/Networking/assets/131701398/77333415-a2bc-450e-ac5e-d63fdea6d3da)  
+
+#### Administrative Distance 
+
+![image](https://github.com/ckerley2002/Networking/assets/131701398/e709076c-9432-4e2a-99a4-8acc5643c32f)  
+
+![image](https://github.com/ckerley2002/Networking/assets/131701398/5408c134-d09f-45c8-af27-f7263901688d)  
+
+##### Metrics 
+1. Hop
+2. Bandwidth
+3. Delay
+4. Load
+5. MTU
+6. Reliability
+7. Cost
+8. Policy
+
+#### Dynamic Routing Protocols
+
+![image](https://github.com/ckerley2002/Networking/assets/131701398/3c326cc1-9709-4dc8-a356-7e23143a11f4)  
 
 
 
