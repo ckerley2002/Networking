@@ -221,5 +221,204 @@ RFC 3927
 ![image](https://github.com/ckerley2002/Networking/assets/131701398/3c326cc1-9709-4dc8-a356-7e23143a11f4)  
 
 
+## Layer 4 Transport 
+Transfer of data 
+
+### TCP Header
+Byte 0-1 Source Port  
+Byte 2-3 Destination Port  
+Byte 4-7 Sequence Number  
+Byte 8-11 Ack Number    
+Byte 12 Nibble 1 Offset   
+Byte 12 Nibble 2 Resvered  
+Byte 13 TCP Flags  
+Byte 14-15 Window  
+Byte 16-17 Checksum  
+Byte 18-19 Urgent Pointer  
+Byte 20-23 TCP Options (variable length, optional)  
+
+### TCP Flags 
+
+CWR   ECE  URG   ACK   PSH   RST   SYN   FIN  
+Collection of Exceptionally Unskilled Attackers Pester Read Security Folks  
+
+### UDP Header
+
+Byte 0-1 Source Port  
+Byte 2-3 Destination Port  
+Byte 4-5 Length of header and data  
+Byte 6-7 Checksum      
+
+
+## Layer 5 Session
+
+### Protocols
+
+- Socks - Indicated Connections through a proxy - TCP 1080  
+- NetBIOS  
+- PPTP - OBSOLETE - method to create VPN Tunnels - TCP 1723  
+- L2TP - Orgins from L2F and PPTP does not provide encryption - relies on other means of encryption - TCP 1701  
+- SMB / CIFS - Allowed to establish connections to other devices to share files, printers, etc. - SMB Rides over NetBIOS allowing applications to communicate over LAN using a NetBIOS name - Deprecated due to DNS - TCP 139/445 - UDP 137/138  
+- RPC - Resquest and Response Protocol - Sends request for information in exter Server - Recives said Information - Displays data to user - Ex. SOAP,XML,JSON,NFS - Any port can be used  
+
+## Layer 6 Presentation
+
+### Responsibilities
+**This layer deals with Translating, Formating, Encryption, and Compression**
+
+## Layer 7 Application
+
+### Protocols
+
+#### FTP
+- File Transfer Protocol  
+- TCP 20/21  
+- Meaasges - FTP Commands, FTP Reply Codes   
+- Modes  
+  - Active  
+    - Client Initiates data transfer  
+    - Port 21  
+    - Issues  
+      - Doesnt work well through SSH  
+  - Passive  
+    - Reverses Coversation  
+    - Client initates both the command and date connections  
+
+#### Telnet  
+- TCP 23  
+- Meaasges:  
+  - Commands  
+  - Options  
+- Compared to ssh it is secure  
+- **Cannot tunnel with telnet**  
+- No Encryption Can see whta is happening on both sides  
+
+#### SMTP  
+- Simple Mail Transfer Protocol  
+- For transfer between mail servers  
+- TCP 25  
+
+#### TACACS
+- Network Authenitication Protocol  
+- TCP 49  
+- Created by CISCO  
+  - Generally for networking equiptment  
+
+#### HTTP(S)
+- TCP 80 TCP 443  
+- GET / HEAD / POST / PUT  
+- HTTP Status Codes  
+  - 100,200,300,400  
+
+#### POP / IMAP  
+- TCP 110  
+- Mail Protocols for Clients to connect to the mail servers to retreive mail  
+- POP TCP 110  
+- IMAP TCP 143  
+
+#### RDP  
+- TCP 3389  
+- Compression or Encryption support  
+- Desktop Size and color depth  
+- Remote System Control  
+- Keyboard Mapping   
+
+#### DNS (Query and Response)  
+- Servers communication between oneanother to get name service identification  
+- TCP and UDP 53   
+
+#### DHCP   
+- UDP 67/68  
+- Gets IPs  
+- Client from 67  
+- Server from 68    
+
+#### TFTP
+- UDP 69
+- Total File Transfer Protocol  
+- No Threeway Hand Shake  
+- Used For Pixie Booting  
+- Good for routing configs for routers obv   
+
+#### NTP  
+- UDP 123  
+- Network Time Protocol  
+- Used for Syncrization across systems so they actually work  
+
+#### SNMP  
+- Simple network management protocol  
+- UDP 161/162  
+
+#### Radius  
+- UDP 1645/1646 and 1812/1813  
+
+#### RTP  
+- Real Time   
+- UDP Above 1023  
+
+#### SSH
+- TCP 22
+- Secure Shell (Remote)
+- Asymmetric or PKI for key exchange 
+- Symmetric for session 
+- User Authentication
+- Data Stream Channeling
+- A progam on the Client 
+
+##### SSH Architecture
+- Known Host Database - Collection of Host Keys the the client and server use for mutual authenication 
+- Agent - Stores keys as a convenience for users
+- Signer - A program thay signs the host based authenication packets
+- Configuration File - Settings that exist on a Client or Servier that dictate funct for SSH or SSHD
+
+##### SSH Conserns
+- Using password authenication only
+- Key rotation
+- Key management
+
+```bash
+sudo tcpdump -D
+#Shows interfaces avaiable
+sudo tcpdump -i eth0
+#Only listens on interface eth0 
+sudo tcpdump -i eth0 -X
+#Displays data in only ASCII and HEX
+sudo tcpdump -i eth0 -X
+#Same but includes ethernet portion of Frame
+sudo tcpdump -i eth0 -w test.pcap
+#writes tcpdump to test.pcap
+sudo tcpdump -r test.pcap
+#reads from pcap file
+sudo tcpdump -i eth0 -XXvv
+#verbose (mroe information)
+sudo tcpdump -i eth0 -XXvvn
+#Shows numbers instead of names
+sudo tcpdump -i eth0 -XXvvn port 22
+#only port 22
+sudo tcpdump -i eth0 -XXvvn host 10.10.0.40
+#Only Host 10.10.0.40
+sudo tcpdump -i eth0 -XXvvn host 10.10.0.40 and portrange 20-100 or host 10.1.0.3 and dst net 10.2.0.0/24
+&& = and
+|| = or
+!= not
+
+
+```
+
+### Berkeley Packet Filters
+
+```bash
+
+
+
+```
+
+
+
+
+
+
+
+
 
 
