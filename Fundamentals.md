@@ -330,8 +330,8 @@ Byte 6-7 Checksum
 #### DHCP   
 - UDP 67/68  
 - Gets IPs  
-- Client from 67  
-- Server from 68    
+- Client from 68  
+- Server from 67    
 
 #### TFTP
 - UDP 69
