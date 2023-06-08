@@ -242,3 +242,9 @@ packet = ip_header + tcp_hdr + user_data
 s.sendto(packet, (dst_ip, 0))
 
 ```
+
+# Encodign and Decoding
+- Encoding
+  - taking bits and coverting the to a specific cypher
+- Decoding
+  -
