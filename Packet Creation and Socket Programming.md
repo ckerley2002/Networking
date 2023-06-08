@@ -37,6 +37,7 @@ import socket
 - Socket Libary
 - Struct Libary
 - Sys Libary
+- ** ipaddr and port required **
 
 ```python3
 import socket
