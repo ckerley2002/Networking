@@ -87,5 +87,63 @@ nc -lp 1111 > mpipe | nc -lp 2222 < mypipe
 
 
 ```
+# SSH
+- v1 and v2
+- Provides authetication, encryption and integrity
+- allows remote terminal sessions
+- used for tunneling
+- Created as a secure replacement for Berkeley Remote Commands
 
+## SSH Port Forwarding
+- Creates Channels using SSH-CONN Protocol
+- Allows for tunneling of other services through SSH
+- Provides insecure services encryption
 
+```bash
+
+vim /.ssh/config
+```
+
+### SSH Local Forawrding
+```bash
+ssh -p <optimal alt port> <user>@<pivot ip> -L <port to open>:<tgt host>:<port> -NT
+#or
+ssh -L <local bindport>:<target ip>:<tgt port> -p <alt port> user@<pivot port> -NT
+```
+**always remember to put -NT at the end of SSH Port Forwarding Command**
+```bash
+firefox localhost 21902
+wget -r localhost 21902'
+telnet localhost 8675
+  ehlo
+
+```
+
+### SSH Reverse Forwarding
+```bash
+ssh user@targetip -R <RHP>:localhost:<port to access> -NT
+```
+
+### SSH Dynamic Port Forwarding
+tcp only
+```bash
+ssh [-p <alt port>] <user>@<ip> -D <port>
+ssh -p 9315 john@localhost -D 9050
+
+proxychains nmap -Pn <options> Billhost
+proxychains wget -r billhost 8080
+proxychains telnet billhost 25
+  ehlo
+
+proxychains nmap -Pn <options> Laurahost
+#or
+proxychains ./scan.sh
+#or
+proxychains ./stream.py
+
+proxychains wget -r ftp://Laurahost
+
+proxychains nmap -Pn <options> AmosHost 
+proxychains telnet #**do not do**
+
+```
