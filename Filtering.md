@@ -69,4 +69,8 @@ nft add rule [family] [table] [chain] [position <position>] [matches (matches)] 
 
 ```
 
-## Intrustion Dec
+## Intrustion Detection Systems and Intrustion Prevention Systems
+### Common Systems 
+Insert pic here  
+### Snort rule header 
+[action] [protocol] [s.ip] [s.port] [direction] [d.ip] [d.port] ( match conditions ;)
