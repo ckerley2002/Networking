@@ -62,4 +62,11 @@ nft {delete | list | flush} table [family] [table]
 nft {delete | list | flush} chain [family] [table] [chain]
 
 nft add rule [family] [table] [chain] [position <position>] [matches (matches)] [statement]
-``
+```
+
+## Nat 
+```nash
+
+```
+
+## Intrustion Dec
